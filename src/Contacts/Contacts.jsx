@@ -17,7 +17,7 @@ const ContactList = ({contacts, onDeleteContact}) => {
           ))}
         </Contact>
       </>
-    )
+  )
 }
 
 ContactList.propTypes = {

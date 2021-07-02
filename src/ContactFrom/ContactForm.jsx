@@ -37,9 +37,7 @@ class ContactFrom extends Component {
      const { name, number } = this.state;
     return (
       <>    
-          <Formik
-            initialValues={{ name: '', number: '' }}
-          >
+        <Formik initialValues={{ name: '', number: '' }}>
             {({
               errors,
               touched,
@@ -47,47 +45,47 @@ class ContactFrom extends Component {
             }) => (
               <form onSubmit={this.handleSubmit}>
            
-                <Title2 htmlFor={this.nameInputId}><BiUser /> Name</Title2>
+                <Title2 htmlFor={this.nameInputId}><BiUser/> Name</Title2>
 
                 <Input
-                  type="text"
+                type="text"
                 name="name"
-                 placeholder="Enter your name"
-                  onChange={this.handleChange}
+                placeholder="Enter your name"
+                onChange={this.handleChange}
                 onBlur={handleBlur}
                 value={name}
                 id={this.nameInputId}
-                  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                  title="Имя может состоять только из букв, апострофа, тире и пробелов. 
-             Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-                  required
+                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                title="Имя может состоять только из букв, апострофа, тире и пробелов. 
+                Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+                required
                 />
                 {errors.name && touched.name && errors.name}
           
-                <Title2 htmlFor={this.numberInputId}><BiPhoneCall /> Number </Title2>
+                <Title2 htmlFor={this.numberInputId}><BiPhoneCall/> Number </Title2>
 
                 <Input
-                  type="text"
+                type="text"
                 name="number"
-                 placeholder="Enter your number"
-                  onChange={this.handleChange}
-                  onBlur={handleBlur}
+                placeholder="Enter your number"
+                onChange={this.handleChange}
+                onBlur={handleBlur}
                 value={number}
                 id={this.numberInputId}
-                  pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                  title="Номер телефона должен состоять из цифр и может содержать пробелы,
-             тире, круглые скобки и может начинаться с +"
-                  required
+                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                title="Номер телефона должен состоять из цифр и может содержать пробелы,
+                тире, круглые скобки и может начинаться с +"
+                required
                 />
                 {errors.number && touched.number && errors.number}
 
-              <Button type="submit"  disabled={!name || !number}>
-                  <BiAddToQueue />
+                <Button type="submit"  disabled={!name || !number}>
+                <BiAddToQueue />
                   Add contact
                 </Button>
               </form>
             )}
-          </Formik>
+        </Formik>
       </>
     )
   }

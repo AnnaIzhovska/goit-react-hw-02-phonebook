@@ -19,7 +19,8 @@ class App extends React.Component{
       id: uuidv4(),
       name,
       number,
-    };
+     };
+     
     if (contacts.some((contact) => contact.name === name)) {
       alert(`${name} is already in contacts.`);
       return;
@@ -31,9 +32,10 @@ class App extends React.Component{
     }));
   };
 
-    changeFilter = (e) => {
+  changeFilter = (e) => {
     this.setState({ filter: e.currentTarget.value });
   };
+
   getVisibleContacts = () => {
     const { contacts, filter } = this.state;
     const normalizedFilter = filter.toLowerCase();
@@ -42,26 +44,24 @@ class App extends React.Component{
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   }
-      deleteContact = (contactId) => {
-        this.setState( prevState => ({
-          contacts: prevState.contacts.filter(contact => contact.id !== contactId)}
-        ))
+  deleteContact = (contactId) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId)
+    }
+    ))
   }
 
     render(){
       const { filter } = this.state;
-        const visibleContacts = this.getVisibleContacts();
+      const visibleContacts = this.getVisibleContacts();
         return(
           <>
-            <Container title="Phonebook">
-            <ContactFrom onSubmit={this.formSubmitHandle} ></ContactFrom>
+            <Container title='Phonebook'>
+            <ContactFrom onSubmit={this.formSubmitHandle}></ContactFrom>
             <h2> <RiContactsLine/> Contacts</h2>
-            <Filter value={filter} onChange={this.changeFilter} ></Filter>
-            <ContactList
-              contacts={visibleContacts}
-              onDeleteContact={this.deleteContact}
-              ></ContactList>
-              </Container>
+            <Filter value={filter} onChange={this.changeFilter}></Filter>
+            <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}></ContactList>
+            </Container>
             </>
         )
     }
