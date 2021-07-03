@@ -55,14 +55,12 @@ class App extends React.Component{
       const { filter } = this.state;
       const visibleContacts = this.getVisibleContacts();
         return(
-          <>
             <Container title='Phonebook'>
             <ContactFrom onSubmit={this.formSubmitHandle}></ContactFrom>
             <h2> <RiContactsLine/> Contacts</h2>
             <Filter value={filter} onChange={this.changeFilter}></Filter>
             <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}></ContactList>
             </Container>
-            </>
         )
     }
 }

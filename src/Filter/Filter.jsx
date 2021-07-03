@@ -3,7 +3,7 @@ import { Input } from '../ContactFrom/ContactForm.styles';
 import { Text } from './Filter.styles';
 
 const Filter = ({ value, onChange }) => {
-    return(
+    return (
         <>
         <Text>Find contacts by name</Text>
             <Input

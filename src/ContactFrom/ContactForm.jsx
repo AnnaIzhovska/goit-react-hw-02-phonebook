@@ -36,7 +36,7 @@ class ContactFrom extends Component {
   render() {
      const { name, number } = this.state;
     return (
-      <>    
+          
         <Formik initialValues={{ name: '', number: '' }}>
             {({
               errors,
@@ -86,7 +86,6 @@ class ContactFrom extends Component {
               </form>
             )}
         </Formik>
-      </>
     )
   }
 }

@@ -4,19 +4,15 @@ import {RiDeleteBin5Line, RiUserHeartLine} from 'react-icons/ri';
 
 const ContactList = ({contacts, onDeleteContact}) => {
     return (
-      <>
+
         <Contact>
           {contacts.map(({id,name,number}) => (
-            <>
             <ContactItem key={id}><RiUserHeartLine/>
             <Text>{name}: {number}</Text>
             <BtnDelete onClick = {() => onDeleteContact(id)}><RiDeleteBin5Line/></BtnDelete>
             </ContactItem>
-            
-            </>
           ))}
         </Contact>
-      </>
   )
 }
 
